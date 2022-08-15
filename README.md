@@ -10,7 +10,7 @@ This sample dashboard visualizes greenhouse gas open data. Data sources are writ
 
 1. Clone this repository in Google Cloud Shell
 ```bash
-$ clone hogehoge
+$ git clone https://github.com/Olivine-Ryo/streamlit-cloudrun-sample.git
 ```
 2. Deploy with Buildpacks (if asked "Allow unauthenticated invocations to [greenhousegas-dashboard] (y/N)?", return yes.)
 ```bash
