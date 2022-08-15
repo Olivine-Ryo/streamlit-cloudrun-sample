@@ -12,7 +12,7 @@ This sample dashboard visualizes greenhouse gas open data. Data sources are writ
 ```bash
 $ clone hogehoge
 ```
-2. Deploy with Buildpacks
+2. Deploy with Buildpacks (if asked "Allow unauthenticated invocations to [greenhousegas-dashboard] (y/N)?", return yes.)
 ```bash
 $ gcloud run deploy greenhousegas-dashboard --source . --timeout=3600
 ```

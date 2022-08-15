@@ -6,6 +6,8 @@ import plotly.express as px
 def load_file():
     #source repository https://github.com/owid/co2-data
     df = pd.read_csv("https://raw.githubusercontent.com/owid/co2-data/master/owid-co2-data.csv")
+    df = df[df["year"].notnull()]
+    df["year"] == df["year"].astype("int")
     df_column_meta = pd.read_csv("column_metadata.csv")
     return df, df_column_meta
 
