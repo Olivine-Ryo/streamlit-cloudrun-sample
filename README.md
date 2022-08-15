@@ -1,6 +1,6 @@
 Sample code to deploy Streamlit dashboard app with Google Cloud Run
  
-# Abstract
+# Summary
  
 You can deploy Streamlit dashboard app with only two commands.
 This sample dashboard visualizes greenhouse gas open data. Data sources are written below.
