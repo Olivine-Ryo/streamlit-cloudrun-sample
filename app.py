@@ -101,8 +101,8 @@ def main():
     with tab3:
         df_plot = df[df[column_name].notnull()]
         st.subheader(title_name)
-        year_start = st.slider("比較する年を選択(古)", min_value=int(df_plot["year"].min()), max_value=int(df_plot["year"].max()-1), value=int(df_plot["year"].max()-10), step=1)
-        year_end = st.slider("比較する年を選択(新)", min_value=year_start+1, max_value=df_plot["year"].max(), value=df_plot["year"].max(), step=1)
+        year_start = st.slider("比較する年を選択(古)", min_value=int(df_plot["year"].min()), max_value=int(df_plot["year"].max())-1, value=int(df_plot["year"].max())-10, step=1)
+        year_end = st.slider("比較する年を選択(新)", min_value=int(year_start)+1, max_value=int(df_plot["year"].max()), value=int(df_plot["year"].max()), step=1)
         df_plot = df[(df["year"].isin([year_start,year_end]))].pivot_table(column_name,"country","year")
         df_plot[f"{year_start}年と{year_end}年の差({unit_name})"] = df_plot[year_end] -  df_plot[year_start]
         df_plot[f"{year_start}年と{year_end}年の変化率(%)"] = 100*(df_plot[year_end].div(df_plot[year_start]) - 1.)
