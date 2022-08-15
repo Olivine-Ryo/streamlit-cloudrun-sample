@@ -3,4 +3,4 @@ owid-co2-data.csv
 Untitled.ipynb
 .DS_Store
 .ipynb_checkpoints
-/.ipynb_checkpoints/.
+*/.ipynb_checkpoints/*
