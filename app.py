@@ -6,8 +6,6 @@ import plotly.express as px
 def load_file():
     #source repository https://github.com/owid/co2-data
     df = pd.read_csv("https://raw.githubusercontent.com/owid/co2-data/master/owid-co2-data.csv")
-    df = df[df["year"].notnull()]
-    df["year"] == df["year"].astype("int")
     df_column_meta = pd.read_csv("column_metadata.csv")
     return df, df_column_meta
 
@@ -83,7 +81,7 @@ def main():
     #コロプレスマップ
     with tab2:
         df_plot = df[df["iso_code"].notnull() & df[column_name].notnull()]
-        year_plot = st.slider("年を選択", min_value=df_plot["year"].min(), max_value=df_plot["year"].max(), value=df_plot["year"].max(), step=1)
+        year_plot = st.slider("年を選択", min_value=int(df_plot["year"].min()), max_value=int(df_plot["year"].max()), value=int(df_plot["year"].max()), step=1)
         df_plot = df_plot[df_plot["year"] == year_plot]
         fig = px.choropleth(df_plot,
                     locations = "iso_code", color = column_name, hover_data = ["country",column_name], color_continuous_scale="Viridis",
@@ -103,7 +101,7 @@ def main():
     with tab3:
         df_plot = df[df[column_name].notnull()]
         st.subheader(title_name)
-        year_start = st.slider("比較する年を選択(古)", min_value=df_plot["year"].min(), max_value=df_plot["year"].max()-1, value=df_plot["year"].max()-10, step=1)
+        year_start = st.slider("比較する年を選択(古)", min_value=int(df_plot["year"].min()), max_value=int(df_plot["year"].max()-1), value=int(df_plot["year"].max()-10), step=1)
         year_end = st.slider("比較する年を選択(新)", min_value=year_start+1, max_value=df_plot["year"].max(), value=df_plot["year"].max(), step=1)
         df_plot = df[(df["year"].isin([year_start,year_end]))].pivot_table(column_name,"country","year")
         df_plot[f"{year_start}年と{year_end}年の差({unit_name})"] = df_plot[year_end] -  df_plot[year_start]
