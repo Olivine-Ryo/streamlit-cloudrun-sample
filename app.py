@@ -12,8 +12,8 @@ def load_file():
     return df, df_column_meta
 
 @st.cache
-def convert_df(df, require_index = False):
-     return df.to_csv(index=require_index).encode('utf-8-sig')
+def convert_df(df_export, require_index = False):
+     return df_export.to_csv(index=require_index).encode('utf-8-sig')
 
 
 
