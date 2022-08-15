@@ -14,6 +14,7 @@ $ git clone https://github.com/Olivine-Ryo/streamlit-cloudrun-sample.git
 ```
 2. Deploy with Buildpacks (if asked "Allow unauthenticated invocations to [greenhousegas-dashboard] (y/N)?", return yes.)
 ```bash
+$ cd ./streamlit-cloudrun-sample
 $ gcloud run deploy greenhousegas-dashboard --source . --timeout=3600
 ```
 
