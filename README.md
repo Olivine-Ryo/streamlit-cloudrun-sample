@@ -8,7 +8,7 @@ This sample dashboard visualizes greenhouse gas open data. Data sources are writ
  
 # Usage
 
-1. Clone this repository in Google Cloud Shell.
+1. Clone this repository in Google Cloud Shell
 ```bash
 $ clone hogehoge
 ```
